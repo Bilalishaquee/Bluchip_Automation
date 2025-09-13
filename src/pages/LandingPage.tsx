@@ -60,7 +60,99 @@ const LandingPage: React.FC = () => {
       
       {/* Hero Section */}
       <section className="relative pt-20 pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-gray-900 to-green-900/20"></div>
+        {/* Animated Background */}
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-gray-900 to-green-900/20"
+          animate={{
+            background: [
+              "linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(17, 24, 39, 1) 50%, rgba(34, 197, 94, 0.2) 100%)",
+              "linear-gradient(135deg, rgba(30, 58, 138, 0.3) 0%, rgba(17, 24, 39, 1) 50%, rgba(34, 197, 94, 0.3) 100%)",
+              "linear-gradient(135deg, rgba(30, 58, 138, 0.2) 0%, rgba(17, 24, 39, 1) 50%, rgba(34, 197, 94, 0.2) 100%)"
+            ]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          {/* Floating particles animation */}
+          <motion.div
+            className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full opacity-60"
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute top-40 right-20 w-3 h-3 bg-green-400 rounded-full opacity-40"
+            animate={{
+              y: [0, -30, 0],
+              x: [0, -15, 0],
+              scale: [1, 0.8, 1],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 1,
+            }}
+          />
+          <motion.div
+            className="absolute bottom-40 left-1/4 w-1 h-1 bg-purple-400 rounded-full opacity-50"
+            animate={{
+              y: [0, -25, 0],
+              x: [0, 20, 0],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+          />
+          <motion.div
+            className="absolute top-60 right-1/3 w-2 h-2 bg-yellow-400 rounded-full opacity-30"
+            animate={{
+              y: [0, -35, 0],
+              x: [0, -10, 0],
+              scale: [1, 0.7, 1],
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 3,
+            }}
+          />
+          
+          {/* Animated grid pattern overlay */}
+          <motion.div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px'
+            }}
+            animate={{
+              backgroundPosition: ['0px 0px', '50px 50px', '0px 0px']
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+        </motion.div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -69,38 +161,163 @@ const LandingPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 lg:mb-8">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent">
-                BluChip
-              </span>
-              <br />
-              <span className="text-white">Options Automation</span>
-            </h1>
-            
-            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 lg:mb-12 max-w-3xl mx-auto px-4">
-              Advanced algorithmic platform for stock screening, fundamental analysis, 
-              technical levels, and intelligent options recommendations
-            </p>
+            {/* Animated Logo/Brand */}
+            <motion.div
+              className="mb-8"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <motion.div
+                className="inline-block"
+                whileHover={{ scale: 1.05, rotate: 2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="p-4 bg-gradient-to-r from-blue-500/10 to-green-500/10 rounded-full border border-blue-500/20 mb-6">
+                  <TrendingUp className="h-16 w-16 text-blue-400 mx-auto" />
+                </div>
+              </motion.div>
+            </motion.div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 lg:mb-16 px-4">
-              <Link
-                to="/admin/login"
-                className="px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2 text-sm lg:text-base"
+            {/* Animated Title with Glow Effect */}
+            <motion.h1 
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 lg:mb-8 relative"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <motion.span 
+                className="bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 bg-clip-text text-transparent relative"
+                animate={{
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                style={{
+                  backgroundSize: "200% 200%",
+                }}
               >
-                <span>Admin Dashboard</span>
-                <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5" />
-              </Link>
-              <Link
-                to="/user/login"
-                className="px-6 lg:px-8 py-3 lg:py-4 border-2 border-green-500 text-green-400 font-semibold rounded-lg hover:bg-green-500 hover:text-white transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2 text-sm lg:text-base"
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-green-400 opacity-20 blur-xl"
+                  animate={{
+                    opacity: [0.1, 0.3, 0.1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                BluChip
+              </motion.span>
+              <br />
+              <motion.span 
+                className="text-white relative"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
               >
-                <span>User Access</span>
-                <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5" />
-              </Link>
-            </div>
+                <motion.span
+                  className="absolute inset-0 text-white opacity-20 blur-sm"
+                  animate={{
+                    opacity: [0.1, 0.2, 0.1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                />
+                Options Automation
+              </motion.span>
+            </motion.h1>
+            
+            {/* Animated Subtitle with typing effect */}
+            <motion.p 
+              className="text-lg sm:text-xl lg:text-2xl text-gray-300 mb-8 lg:mb-12 max-w-3xl mx-auto px-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+            >
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1.2 }}
+              >
+                Advanced algorithmic platform for stock screening, fundamental analysis, 
+                technical levels, and intelligent options recommendations
+              </motion.span>
+            </motion.p>
+
+            {/* Animated Call-to-Action Buttons */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-12 lg:mb-16 px-4"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.2 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link
+                  to="/admin/login"
+                  className="px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 text-sm lg:text-base shadow-lg hover:shadow-xl"
+                >
+                  <motion.span
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 1.4 }}
+                  >
+                    Admin Dashboard
+                  </motion.span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5" />
+                  </motion.div>
+                </Link>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+              >
+                <Link
+                  to="/user/login"
+                  className="px-6 lg:px-8 py-3 lg:py-4 border-2 border-green-500 text-green-400 font-semibold rounded-lg hover:bg-green-500 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 text-sm lg:text-base shadow-lg hover:shadow-xl"
+                >
+                  <motion.span
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 1.6 }}
+                  >
+                    User Access
+                  </motion.span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  >
+                    <ArrowRight className="h-4 w-4 lg:h-5 lg:w-5" />
+                  </motion.div>
+                </Link>
+              </motion.div>
+            </motion.div>
 
             {/* Animated Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-4">
+            <motion.div 
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 px-4"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.8 }}
+            >
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
@@ -108,23 +325,67 @@ const LandingPage: React.FC = () => {
                     key={index}
                     className={`p-6 rounded-lg border transition-all duration-500 ${
                       currentStat === index 
-                        ? 'bg-blue-500/10 border-blue-500/30 scale-105' 
+                        ? 'bg-blue-500/10 border-blue-500/30 scale-105 shadow-lg shadow-blue-500/20' 
                         : 'bg-gray-800/50 border-gray-700'
                     }`}
+                    initial={{ opacity: 0, y: 30, scale: 0.9 }}
                     animate={{ 
+                      opacity: 1,
+                      y: 0,
                       scale: currentStat === index ? 1.05 : 1,
                       borderColor: currentStat === index ? '#3b82f6' : '#374151'
                     }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: 2.0 + (index * 0.1),
+                      scale: { duration: 0.3 }
+                    }}
+                    whileHover={{ 
+                      scale: 1.02, 
+                      y: -5,
+                      transition: { duration: 0.2 }
+                    }}
                   >
-                    <Icon className={`h-8 w-8 mx-auto mb-4 ${
-                      currentStat === index ? 'text-blue-400' : 'text-gray-400'
-                    }`} />
-                    <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
-                    <div className="text-gray-300">{stat.label}</div>
+                    <motion.div
+                      animate={{ 
+                        rotate: currentStat === index ? [0, -10, 10, 0] : 0,
+                        scale: currentStat === index ? [1, 1.1, 1] : 1
+                      }}
+                      transition={{ 
+                        duration: 0.6,
+                        repeat: currentStat === index ? Infinity : 0,
+                        repeatDelay: 2
+                      }}
+                    >
+                      <Icon className={`h-8 w-8 mx-auto mb-4 ${
+                        currentStat === index ? 'text-blue-400' : 'text-gray-400'
+                      }`} />
+                    </motion.div>
+                    <motion.div 
+                      className="text-3xl font-bold text-white mb-2"
+                      animate={{ 
+                        scale: currentStat === index ? [1, 1.05, 1] : 1
+                      }}
+                      transition={{ 
+                        duration: 0.3,
+                        repeat: currentStat === index ? Infinity : 0,
+                        repeatDelay: 1
+                      }}
+                    >
+                      {stat.value}
+                    </motion.div>
+                    <motion.div 
+                      className="text-gray-300"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 2.2 + (index * 0.1) }}
+                    >
+                      {stat.label}
+                    </motion.div>
                   </motion.div>
                 );
               })}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -179,7 +440,7 @@ const LandingPage: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {stockScreenerData.map((stock, index) => (
-                <StockScreenerCard key={index} stock={stock} />
+                <StockScreenerCard key={index} stock={stock as any} />
               ))}
             </div>
           </div>
@@ -194,7 +455,7 @@ const LandingPage: React.FC = () => {
               Deep fundamental analysis using ROA, ROE, ROIC metrics along with debt ratios 
               to ensure only financially strong companies pass our screening process.
             </p>
-            <FundamentalsTable data={fundamentalsData} />
+            <FundamentalsTable data={fundamentalsData as any} />
           </div>
 
           {/* Technical Levels Module */}
@@ -224,7 +485,7 @@ const LandingPage: React.FC = () => {
               Sophisticated options chain analysis validating contracts based on delta, open interest, 
               implied volatility, and bid-ask spreads to ensure liquid and profitable trades.
             </p>
-            <OptionsValidatorTable data={optionsData} />
+            <OptionsValidatorTable data={optionsData as any} />
           </div>
 
           {/* Recommendation Engine */}
